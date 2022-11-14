@@ -2,12 +2,19 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+  font-family: "ReplRegular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* FONTS */
+
+@font-face {
+  font-family: ReplRegular;
+  src: url(../public/assets/fonts/ReplRegular.woff);
 }
 
 main {
@@ -27,9 +34,22 @@ code {
 }
 
 .container {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.everydays-list.grid, .everydays-list.grid .infinite-scroll-component__outerdiv, 
+.everydays-list.grid .infinite-scroll-component,
+.everydays-list.grid .infinite-scroll-component .MuiMasonry-roo {
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+}
+
+.everydays-list .infinite-scroll-component__outerdiv {
+  width: 100%;
+}
+.everydays-list .infinite-scroll-component {
+  overflow-y: visible;
 }
