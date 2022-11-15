@@ -71,9 +71,23 @@ const ArtworkInfoStyles = styled('section')(
   .artwork-description {
     margin: 0 0 20px 0;
   }
-
   .italics {
     font-style: italic;
+  }
+
+  @media (max-width: 30em) {
+    flex-direction: column;
+
+    .artwork-column:first-child {
+      margin: 0;
+    }
+    .artwork-column img {
+      width: 100%;
+    }
+    // DESCRIPTION 
+    .artwork-description-wrapper {
+      margin-top: 50px;
+    }
   }
 `,
 )
