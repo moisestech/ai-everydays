@@ -10,12 +10,11 @@ import { Masonry } from '@mui/lab'
 
 // height: ${theme.spacing(10)};
 // margin-bottom: ${theme.spacing(10)};
-const EverydayWrapperStyles = styled('section')(
-  ({ theme }) => `
+const EverydaysGridStyles = styled('section')(
+  () => `
   width: 100%;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: center;
   .everydays {
     // max-width: 256px;
     // max-height: 256px;
@@ -185,7 +184,7 @@ export default function EverydaysGrid() {
   // console.log(`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[0]}`);
 
   return (
-    <EverydayWrapperStyles className="everydays-list grid">
+    <EverydaysGridStyles className="everydays-grid">
         <InfiniteScroll
             dataLength={imageArray.length}
             next={fetchMoreData}
@@ -211,6 +210,6 @@ export default function EverydaysGrid() {
           </Masonry>
         </InfiniteScroll>
         
-    </EverydayWrapperStyles>
+    </EverydaysGridStyles>
   )
 }
