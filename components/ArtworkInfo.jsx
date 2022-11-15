@@ -159,7 +159,7 @@ export default function ArtworkInfo() {
           <div className="artwork-description">
             <span className="italics">{'“AI Everydays: The First 5,000”'}</span>
             <span>{" is an AI conceptual artwork that reflects on the contemporary speed of algorithmic production and the artist's role in automation. The piece features a combinatorial projection of emerging technologies rendered as an artificial cartographic landscape. By re-interpreting machine learning ensemble methods and industrialized assemblage processes, Sanabria investigates the trending impact of artificial intelligence on visual culture, operating simultaneously as an individual and a factory."}</span>
-            <span>{"In addition,"}</span>
+            <span>{" In addition,"}</span>
             <span className="italics">{'“AI Everydays: The First 5,000 Days”'}</span>
             <span>{" plays with unsupervised clustering formulas to create an aesthetic gradient. One must zoom out of each neural image to see the abstract uncanny valley we live in daily."}</span>
           </div>
