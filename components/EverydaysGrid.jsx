@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import promptImageArray from '../constants/imagePrompt'
 
+// NEXT
+import Image from 'next/image'
+
 // COMPONENTS
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -19,14 +22,17 @@ const EverydaysGridStyles = styled('section')(
     // max-width: 256px;
     // max-height: 256px;
   }
-  .everyday img {
-    z-index: 50;
-  }
-  .everydays-list .infinite-scroll-component__outerdiv {
+
+  // INFINITE SCROLL
+  .everydays-grid .infinite-scroll-component__outerdiv {
     width: 100%;
   }
   .infinite-scroll-component_outerdiv {
     width: 100%;
+  }
+
+  .everyday img {
+    z-index: 50;
   }
 
   // EVERYDAYS HOVER
@@ -39,6 +45,13 @@ const EverydaysGridStyles = styled('section')(
     justify-content: center;
     z-index:  0;
     min-height: 50px;
+    object-fit: contain; 
+    height: 100%;
+    display: block;
+    position: relative; 
+    max-width: 2169px; 
+    width: 100%; 
+    height: auto;
   }
   // HOVER
 	.everyday:hover .prompt-image {
@@ -76,6 +89,9 @@ const EverydaysGridStyles = styled('section')(
 	.everyday .prompt-text {
 		display: none;
 	}
+  .everyday span:nth-child(2) {
+    overflow: visible !important;
+  }
   .everyday:hover .prompt-text {
     display: flex;
     flex: 1;
@@ -104,6 +120,21 @@ const EverydaysGridStyles = styled('section')(
 )
 
 let initialImageArray = [
+  // // "20220909015018_00030_A_couple_of_veliciraptors_holding_cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909020700_00130_Bull_Run_Cyborg_Machine_Vehicle_in_a_Electronic_Super_Highway,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909020700_00131_Bull_Run_Cyborg_Machine_Vehicle_in_a_Electronic_Super_Highway,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909020700_00165_retro_computer_as_a_a_terrarium,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909020700_00212_River_of_Smartphones_and_Cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909020700_00222_A_couple_of_veliciraptors_holding_cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909164327_00002_a_person_flying_with_a_jetpack,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909164327_00024_A_person_with_a_mind_controlled_by_AI,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909164327_00090_A_Cyborg_with_a_Laptop,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909173552_00002_a_person_flying_with_a_jetpack,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909173552_00018_A_person_jacking_into_the_Matrix,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909173552_00061_A_cyborg_with_a_USB_port_for_a_mouth,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909173552_00081_A_Cyborg_with_a_Pet,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909173552_00088_A_Cyborg_with_a_Bomb,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
+  // "20220909191102_00039_retro_computer_as_a_a_terrarium,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
   // "20220909015018_00030_A_couple_of_veliciraptors_holding_cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
   // "20220909020700_00130_Bull_Run_Cyborg_Machine_Vehicle_in_a_Electronic_Super_Highway,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
   // "20220909020700_00131_Bull_Run_Cyborg_Machine_Vehicle_in_a_Electronic_Super_Highway,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
@@ -122,9 +153,9 @@ let initialImageArray = [
 ]
 
 export default function EverydaysGrid() {
-  const [initialImageArray, setInitialImageArray] = useState([])
+  // const [initialImageArray, setInitialImageArray] = useState([])
   const [imageArray, setImageArray] = useState(initialImageArray)
-  const [everydayCount, setEverydayCount] = useState(96)
+  const [everydayCount, setEverydayCount] = useState(128)
   const [hasMore, setHasMore] = useState(true)
 
   // const currentPromptText = prompts[index];
@@ -145,32 +176,34 @@ export default function EverydaysGrid() {
   useEffect(() => {
     let newArray = []
     for (let i = 0; i < 128; i++) {
-      // console.log(i)
-      newArray.push(promptImageArray[i])
+      console.log('useEffect:', everydayCount + i)
+      newArray.push(promptImageArray[everydayCount + i])
     }
-    console.log(newArray.length)
-    setImageArray((...prevArray) => [...prevArray, ...newArray]);
+    console.log('useEffect newArray', newArray.length);
+    console.log('imageArray', imageArray.length);
+    setImageArray(prevArray => [...prevArray, ...newArray]);
   }, [])
 
   const addToArray = useCallback(() => {
     let newArray = []
     for (let i = 0; i < 32; i++) {
-      // console.log(i)
-      newArray.push(promptImageArray[i])
+      console.log('everyday-count:', everydayCount + i)
+      newArray.push(promptImageArray[everydayCount + i])
     }
-    setImageArray((...prevArray) => [...prevArray, ...newArray]);
+    console.log('addToArray', newArray.length);
+    setImageArray(prevArray => [...prevArray, ...newArray]);
   }, [])
 
-  console.log(initialImageArray.length);
-  console.log(imageArray.length);
+  console.log('promptImageArray', promptImageArray.length);
+  console.log('imageArray', imageArray.length);
 
   const fetchMoreData = () => {
     // a fake async api call like which sends
     // 20 more records in 1.5 secs
     setTimeout(() => {
-      setEverydayCount(everydayCount + 32);
-
+      // setEverydayCount(everydayCount + 32);
       addToArray();
+
       // const newArray = promptImageArray.slice(everydayCount, everydayCount + 32);
       // console.log('NEW ARRAY', newArray)
 
@@ -190,23 +223,23 @@ export default function EverydaysGrid() {
             next={fetchMoreData}
             hasMore={hasMore}
             loader={<h4 className="scroll-loader">Loading...</h4>}
+            scrollableTarget="everydays-grid"
           >
           <Masonry columns={12} spacing={0}>  
-                {imageArray.map((i, index) => (
-        
-
-                  <div className="everyday" key={index} style={{ position: 'relative', display: 'inline-block' }} key={index}>
-                    <span className="prompt-text">{imageArray[index]}</span>
-                    
-                    {/* <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 
-                      src={`/assets/everydays-all/${promptImageArray[index]}`}/>  */}
-                      <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 2169, width: '100%', height: 'auto' }}
-                        src={`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[index]}`}/>
-                    
-                    {/* <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 
-                      src={`/assets/everydays-all/${randomEveryday()}`}/>   */}
-                  </div>
-                ))}
+            {imageArray.map((i, index) => (
+    
+              <div className="everyday" key={index} style={{ position: 'relative', display: 'inline-block' }} key={index}>
+                <span className="prompt-text">{imageArray[index]}</span>
+                <Image className="prompt-image" layout={'responsive'} width={100} height={100}
+                  src={`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[index]}`}/>
+                
+                
+                {/* <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 
+                  src={`/assets/everydays-all/${promptImageArray[index]}`}/>  */}
+                {/* <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 
+                  src={`/assets/everydays-all/${randomEveryday()}`}/>   */}
+              </div>
+            ))}
           </Masonry>
         </InfiniteScroll>
         

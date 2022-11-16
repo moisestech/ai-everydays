@@ -7,6 +7,8 @@ import { styled } from '@mui/material'
 
 const TitleStyles = styled('section')(
   () => `
+  width: 100%;
+  background: red;
   .artwork-title {
     display: flex;
     justify-content: center;

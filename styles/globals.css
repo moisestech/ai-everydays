@@ -40,14 +40,14 @@ code {
   justify-content: center;
   align-items: center;
 }
-.everydays-list.grid, .everydays-list.grid .infinite-scroll-component__outerdiv, 
+.everydays-list.grid, .everydays-grid .infinite-scroll-component__outerdiv, 
 .everydays-list.grid .infinite-scroll-component,
 .everydays-list.grid .infinite-scroll-component .MuiMasonry-roo {
   overflow-x: hidden !important;
   overflow-y: visible !important;
 }
 
-.everydays-list .infinite-scroll-component__outerdiv {
+.everydays-grid .infinite-scroll-component__outerdiv {
   width: 100%;
 }
 .everydays-list .infinite-scroll-component {

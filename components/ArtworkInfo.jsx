@@ -75,9 +75,9 @@ const ArtworkInfoStyles = styled('section')(
     font-style: italic;
   }
 
-  @media (max-width: 30em) {
+  @media (max-width: 60em) {
     flex-direction: column;
-
+    align-items: center;
     .artwork-column:first-child {
       margin: 0;
     }
