@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 // COMPONENTS
 import InfiniteScroll from "react-infinite-scroll-component";
+import ImageWithSize from '@components/ImageWithSize';
 
 // MUI
 import { styled } from '@mui/material'
@@ -89,7 +90,7 @@ const EverydaysGridStyles = styled('section')(
 	.everyday .prompt-text {
 		display: none;
 	}
-  .everyday span:nth-child(2) {
+  .everyday span:nth-of-type(2) {
     overflow: visible !important;
   }
   .everyday:hover .prompt-text {
@@ -185,12 +186,14 @@ export default function EverydaysGrid() {
   }, [])
 
   const addToArray = useCallback(() => {
+    const addAmount = 32;
     let newArray = []
-    for (let i = 0; i < 32; i++) {
+    for (let i = 0; i < addAmount; i++) {
       console.log('everyday-count:', everydayCount + i)
       newArray.push(promptImageArray[everydayCount + i])
     }
     console.log('addToArray', newArray.length);
+    setEverydayCount(everydayCount + addAmount);
     setImageArray(prevArray => [...prevArray, ...newArray]);
   }, [])
 
@@ -218,6 +221,9 @@ export default function EverydaysGrid() {
 
   return (
     <EverydaysGridStyles className="everydays-grid">
+        {/* { everydayCount } */}
+
+        {/* <ImageWithSize imgUrl={`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[0]}`} /> */}
         <InfiniteScroll
             dataLength={imageArray.length}
             next={fetchMoreData}
@@ -227,8 +233,7 @@ export default function EverydaysGrid() {
           >
           <Masonry columns={12} spacing={0}>  
             {imageArray.map((i, index) => (
-    
-              <div className="everyday" key={index} style={{ position: 'relative', display: 'inline-block' }} key={index}>
+              <div className="everyday" key={index} style={{ position: 'relative', display: 'inline-block' }}>
                 <span className="prompt-text">{imageArray[index]}</span>
                 <Image className="prompt-image" layout={'responsive'} width={100} height={100}
                   src={`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[index]}`}/>

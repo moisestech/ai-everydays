@@ -77,24 +77,26 @@ export default function EmbedVideo() {
 		// the server HTML and also wont render during the first client-side render.
 		return null;
 	} else {
-		return <EmbedVideoStyles className="embed-video-wrapper">
-      <article>  
-        <div className="play-wrapper" onClick={() => setIsPlaying(!isPlaying)}>
-          <button className="play-button" onClick={() => setIsPlaying(!isPlaying)}>
-            { isPlaying ? <PauseIcon sx={{fontSize: '2rem'}} /> : <PlayArrowIcon sx={{fontSize: '2rem'}} /> }
-          </button>  
-        </div>
-        { typeof window !== "undefined" ? 
-          <ReactPlayer 
-            playing={isPlaying} 
-            loop={true} 
-            muted={false} 
-            width={'100%'} 
-            height={'auto'} 
-            style={{ width: '100%' }}
-            url="https://res.cloudinary.com/react-graphql-store/video/upload/v1668370467/ai-everydays/video/aieverydays-site-video-preview_avt1mh.mp4" /> 
-          : null }
-      </article>
-    </EmbedVideoStyles>
+		return (
+      <EmbedVideoStyles className="embed-video-wrapper">
+        <article>  
+          <div className="play-wrapper" onClick={() => setIsPlaying(!isPlaying)}>
+            <button className="play-button" onClick={() => setIsPlaying(!isPlaying)}>
+              { isPlaying ? <PauseIcon sx={{fontSize: '2rem'}} /> : <PlayArrowIcon sx={{fontSize: '2rem'}} /> }
+            </button>  
+          </div>
+          { typeof window !== "undefined" ? 
+            <ReactPlayer 
+              playing={isPlaying} 
+              loop={true} 
+              muted={false} 
+              width={'100%'} 
+              height={'auto'} 
+              style={{ width: '100%' }}
+              url="https://res.cloudinary.com/react-graphql-store/video/upload/v1668370467/ai-everydays/video/aieverydays-site-video-preview_avt1mh.mp4" /> 
+            : null }
+        </article>
+      </EmbedVideoStyles>
+    )
 	}
 }

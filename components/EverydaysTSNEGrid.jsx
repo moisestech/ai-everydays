@@ -34,7 +34,7 @@ export default function EverydaysTSNEGrid() {
   // const currentPromptText = prompts[index];
 
   const everydaysImgSmall = "https://ai-everydays.s3.amazonaws.com/everydays-grid/moisessanabria-aieverydays-small.webp";
-  const everydaysImgLarge = "https://ai-everydays.s3.amazonaws.com/everydays-grid/moisessanabria-aieverydays-small.webp"
+  const everydaysImgLarge = "https://ai-everydays.s3.amazonaws.com/everydays-grid/moisessanabria-aieverydays-small-zoom-web.png"
   
   return (
     <EverydayWrapperStyles className="everydays-list"> 

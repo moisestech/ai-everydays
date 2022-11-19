@@ -5,6 +5,7 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 import MainTitle from '@components/MainTitle'
 import ArtworkInfo from '@components/ArtworkInfo'
+import ArtistProfile from '@components/ArtistProfile'
 import EmbedVideo from '@components/EmbedVideo'
 import EverydaysTSNEGrid from'@components/EverydaysTSNEGrid'
 
@@ -18,11 +19,17 @@ const HomeStyles = styled.section`
     display: block;
     text-align: center;
   }
+  .header-profile {
+    margin: 30px 0 80px 0;
+  }
   @media (max-width: 30em) {
     main {
       text-align: center;
       margin: 60px 0 20px 0;
       padding: 0;
+    }
+    .header-profile {
+      margin: 30px 0 80px 0;
     }
   }
   
@@ -53,8 +60,17 @@ export default function Home() {
 
         <EmbedVideo />
 
+        <article className="header-profile">
+          <Header 
+            title="TECHNO-MAGICAL NEURAL LIFE-SKETCHES"
+            />
+        </article>
+
+        <ArtistProfile />
+
 
         <ArtworkInfo />
+
         
         <EverydaysGrid />
 

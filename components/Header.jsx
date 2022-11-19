@@ -22,7 +22,7 @@ const HeaderStyles = styled('section')(
 export default function Header({ title, date }) {
   return (
     <HeaderStyles>
-      <h2 className="title">{`${title} ${date}`}</h2>
+      <h2 className="title">{`${title} ${date ? date : ''}`}</h2>
     </HeaderStyles>
   )
 }
