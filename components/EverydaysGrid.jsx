@@ -121,7 +121,7 @@ const EverydaysGridStyles = styled('section')(
 
   @media only screen and (max-width: 40em) {
     .everyday:hover .prompt-image {
-      transform: scale(2) !important;
+      transform: scale(3) !important;
       z-index:  100;
       pointer-events:  none;
     }
@@ -134,7 +134,7 @@ const EverydaysGridStyles = styled('section')(
       padding: 5px;
       bottom: -70px;
       margin: 0;
-      transform: scale(2);
+      transform: scale(3);
       background: rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(16px);
       color: white;
