@@ -1,5 +1,7 @@
 html,
 body {
+  width: 100vw;
+  overflow-x: hidden;
   padding: 0;
   margin: 0;
   font-family: "ReplRegular", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
