@@ -20,6 +20,7 @@ const ArtworkInfoStyles = styled('section')(
     flex: 1;
     flex-direction: column;
     margin: 0 20px;
+    max-width: 500px;
   }
 
   ul {
