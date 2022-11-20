@@ -7,12 +7,12 @@ import { styled } from '@mui/material'
 // margin-bottom: ${theme.spacing(10)};
 const ArtworkInfoStyles = styled('section')(
   ({ theme }) => `
-  width: 100%;
+  width: calc(100vw - 10%);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
-  margin-bottom: 50px;
+  margin: 150px 0;
 
   h3 {
     margin: 0 0 12px 0;
@@ -21,7 +21,7 @@ const ArtworkInfoStyles = styled('section')(
   .artwork-column:first-child {
     display: flex;
     align-items: flex-start;
-    margin: 0 0 0 100px;
+    // margin: 0 0 0 100px;
   }
   .artwork-column:nth-of-type(2) {
     margin: 0 100px;
@@ -39,11 +39,10 @@ const ArtworkInfoStyles = styled('section')(
   .artwork-column .artwork-title {
     color: gray;
     font-size: 1.5rem;
-    margin-bottom: 50px;
   }
 
   .artwork-column img {
-    max-width: 500px;
+    max-width: 330px;
   }
 
   .artwork-desc-column {
@@ -56,13 +55,17 @@ const ArtworkInfoStyles = styled('section')(
     flex-direction: column;
     // max-width: 800px;
   }
+  article.artwork-description-wrapper:nth-of-type(2), 
+  article.artwork-description-wrapper:nth-of-type(3) {
+    margin-top: 50px;
+  } 
   ul.artwork-details-wrapper {
     display: flex;
     flex-direction: column;
     list-style-type: none;
     font-size: .9rem;
     margin: 0;
-    padding: 0 0 50px 0;
+    // padding: 0 0 50px 0;
   }
   li.artwork-detail {
     font-size: .8rem;
@@ -75,7 +78,8 @@ const ArtworkInfoStyles = styled('section')(
     font-style: italic;
   }
 
-  @media (max-width: 60em) {
+  @media only screen and (max-width: 40em) {
+
     flex-direction: column;
     align-items: center;
     .artwork-column:first-child {
@@ -83,10 +87,21 @@ const ArtworkInfoStyles = styled('section')(
     }
     .artwork-column img {
       width: 100%;
+      max-width: 400px;
     }
     // DESCRIPTION 
     .artwork-description-wrapper {
       margin-top: 50px;
+    }
+    .artwork-description {
+      font-size: 1.125rem;
+    }
+    li.artwork-detail {
+      font-size: 1.125rem;
+      margin: 0;
+    }
+    .artwork-column:nth-of-type(2) {
+      margin: 10px;
     }
   }
 `,

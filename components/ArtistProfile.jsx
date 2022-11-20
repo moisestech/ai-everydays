@@ -13,14 +13,21 @@ const ArtworkInfoStyles = styled('section')(
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
-  margin-bottom: 50px;
+  margin: 50px 0;
+  width: calc(100vw - 10%);
 
-  article {
+  article:first-of-type {
     display: flex;
     flex: 1;
     flex-direction: column;
-    margin: 0 20px;
-    max-width: 500px;
+    max-width: 330px;
+  }
+
+  article:nth-of-type(2) {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: 0 0 0 100px;
   }
 
   ul {
@@ -37,12 +44,12 @@ const ArtworkInfoStyles = styled('section')(
   .artist-profile-pic-wrapper {
     max-width: 100px;
     max-height: 100px;
-    margin: 9px 10px 0 0;
+    margin: 5px 10px 12px 0;
   }
 
   h3 {
     font-weight: 600;
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin: 0;
     padding: 0;
   }
@@ -51,6 +58,46 @@ const ArtworkInfoStyles = styled('section')(
     font-size: 1.5rem;
     margin: 0;
     padding: 0;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  @media only screen and (max-width: 40em) {
+    flex-direction: column;
+    align-items: center;
+
+    article {
+      margin: 25px 10px;
+    }
+    article:first-of-type {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      max-width: 400px;
+    }
+  
+    article:nth-of-type(2) {
+      margin: 0;
+    }
+
+    h3 {
+      font-weight: 600;
+      font-size: 2rem;
+    }
+  
+    h4 {
+      font-size: 1.2rem;
+    }
+
+    .artist-profile-wrapper:first-of-type {
+      margin-bottom: 100px;
+    }
+
+    .profile-bio p {
+      font-size: 1.5rem;
+    }
   }
 `,
 )
@@ -61,7 +108,7 @@ export default function ArtistProfile() {
   return (
     <ArtworkInfoStyles className="artist-profile-wrapper">
       <article className="artist-profile-wrapper" >
-        <Image alt="Picture of the artist" width={500} height={500}
+        <Image alt="Picture of the artist" width={330} height={330}
           src="https://ai-everydays.s3.amazonaws.com/profile/moisesdsanabria-portrait.jpg" />
       </article>
 

@@ -77,11 +77,11 @@ const EverydaysGridStyles = styled('section')(
     bottom: -220px;
     left: -90px;
     position: absolute;
-    background: red;
     z-index: 100000;
     font-size: 1.5rem;
     width: 10vw;
     padding: 5px;
+    display: none;
   }
 	.everyday .prompt-image {
 		width: 100%;
@@ -108,6 +108,7 @@ const EverydaysGridStyles = styled('section')(
     color: white;
     z-index: 150;
     word-break: break-all;
+    display: none;
 	}
   // SCROLL
   .scroll-loader {
@@ -116,6 +117,31 @@ const EverydaysGridStyles = styled('section')(
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+  }
+
+  @media only screen and (max-width: 40em) {
+    .everyday:hover .prompt-image {
+      transform: scale(2) !important;
+      z-index:  100;
+      pointer-events:  none;
+    }
+    .everyday:hover .prompt-text {
+      display: flex;
+      flex: 1;
+      font-size: 0.2rem;
+      display: block;
+      position: absolute;
+      padding: 5px;
+      bottom: -70px;
+      margin: 0;
+      transform: scale(2);
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(16px);
+      color: white;
+      z-index: 150;
+      word-break: break-all;
+      display: none;
+    }
   }
 `,
 )

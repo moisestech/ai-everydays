@@ -22,6 +22,10 @@ const HomeStyles = styled.section`
   .header-profile {
     margin: 30px 0 80px 0;
   }
+  hr {
+    width: calc(100vw - 10%);
+    border: 1px solid gray;
+  }
   @media (max-width: 30em) {
     main {
       text-align: center;
@@ -61,13 +65,12 @@ export default function Home() {
         <EmbedVideo />
 
         <article className="header-profile">
-          <Header 
-            title="TECHNO-MAGICAL NEURAL LIFE-SKETCHES"
-            />
+          <Header title="NEURAL BODY OF WORK" />
         </article>
 
         <ArtistProfile />
 
+        <hr />
 
         <ArtworkInfo />
 
