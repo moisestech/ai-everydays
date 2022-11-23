@@ -72,6 +72,8 @@ export default function EmbedVideo() {
 		setInitialRenderComplete(true);
 	}, []);
 
+  console.log({ initialRenderComplete })
+
   if (!initialRenderComplete) {
 		// Returning null will prevent the component from rendering, so the content will simply be missing from
 		// the server HTML and also wont render during the first client-side render.
@@ -89,7 +91,7 @@ export default function EmbedVideo() {
             <ReactPlayer 
               playing={isPlaying} 
               loop={true} 
-              muted={false} 
+              muted={true} 
               width={'100%'} 
               height={'auto'} 
               style={{ width: '100%' }}

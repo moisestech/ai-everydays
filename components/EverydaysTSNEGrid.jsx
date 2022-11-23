@@ -1,5 +1,5 @@
 import React from 'react';
-import promptImageArray from '../constants/imagePrompt'
+// import promptImageArray from '../constants/imagePrompt'
 
 // MUI
 import { styled } from '@mui/material'

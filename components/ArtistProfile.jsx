@@ -1,5 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
+
+// NEXT
 import Image from 'next/image'
+import Link from 'next/link'
+
+// ICONS
+import { AiOutlineTwitter, AiFillInstagram, AiTwotoneMail } from 'react-icons/ai'
+import { FaTiktok } from 'react-icons/fa'
 
 // MUI
 import { styled } from '@mui/material'
@@ -53,6 +60,15 @@ const ArtworkInfoStyles = styled('section')(
     margin: 0;
     padding: 0;
   }
+  h3 a:hover {
+    cursor: pointer;
+    color: blue;
+  }
+
+  h3 a {
+    color: black;
+    text-decoration: none;
+  }
 
   h4 {
     font-size: 1.5rem;
@@ -62,6 +78,25 @@ const ArtworkInfoStyles = styled('section')(
 
   p {
     margin: 10px 0;
+  }
+
+  ul.social-links {
+    display: flex;
+    margin: 20px 20px 0 0;
+    justify-content: flex-end;
+  }
+  
+  .social-links li {
+    margin: 5px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-links a:hover, .social-links li:hover {
+    cursor: pointer;
+    color: blue;
+    fill: blue;
   }
 
   @media only screen and (max-width: 40em) {
@@ -113,14 +148,13 @@ export default function ArtistProfile() {
       </article>
 
       <article>
-
         <div className="profile-header">
           <span className="artist-profile-pic-wrapper">
             <Image alt="Profile Pic of the artist" width={100} height={100}
               src="https://ai-everydays.s3.amazonaws.com/profile/moisesdsanabria-social-media-profile-pic.jpg" />
           </span>
           <span>
-            <h3>MOISES SANABRIA</h3>
+            <h3><Link href="/">MOISES SANABRIA</Link></h3>
             <h4>PRE-FACEFEED, POST-AI</h4>
             <h4>NFTS & SPECULATION</h4>
           </span>
@@ -144,9 +178,30 @@ export default function ArtistProfile() {
           </p>
 
           <ul className="social-links">
-            <li>Twitter</li>
-            <li>Instagram</li>
-            <li>Email</li>
+            <li>
+              <Link href="https://twitter.com/moisesdsanabria" passHref legacyBehavior>
+                <AiOutlineTwitter />
+              </Link>  
+            </li>
+            
+            <li>
+              <Link href="https://www.instagram.com/moisesdsanabria" passHref legacyBehavior>
+                <AiFillInstagram />
+              </Link>
+            </li>
+            
+            <li>
+              <Link href="mailto:m@moises.tech" passHref legacyBehavior>
+                <AiTwotoneMail />
+              </Link>
+            </li>
+            
+            <li>
+              <Link href="https://www.tiktok.com/@moisesdsanabria" passHref legacyBehavior>
+                <FaTiktok />
+                </Link>
+            </li>
+
           </ul>
         </div>
       </article>

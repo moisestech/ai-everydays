@@ -8,6 +8,7 @@ import ArtworkInfo from '@components/ArtworkInfo'
 import ArtistProfile from '@components/ArtistProfile'
 import EmbedVideo from '@components/EmbedVideo'
 import EverydaysTSNEGrid from'@components/EverydaysTSNEGrid'
+import SmallTextBanner from '@components/SmallTextBanner'
 
 import styled from 'styled-components'
 
@@ -47,32 +48,64 @@ export default function Home() {
         <Head>
           <title>AI Everydays</title>
           <link rel="icon" href="./favicon.ico" />
+          <meta name="AI Everydays" content="AI Everydays: The First 5000" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
 
         <main>
           <Header 
             title="I generated and curated 5,000+ pictures with AI every single day from" 
-            date=" March 21 — Nov 10th, 2022."
+            date=" March 21st — Nov 10th, 2022."
           />
         </main>
 
 
         <EverydaysTSNEGrid />
 
+        <div style={{ position: 'fixed', top: 0, right: 0, padding: 15 }}>
+
+          {/* -- Add Connect Widget -- */}
+          <div dangerouslySetInnerHTML={{ 
+            __html: 
+            `<div
+            data-widget='m-connect'
+            data-delay-auth='true'
+            data-network='${process.env.NEXT_APP_NETWORK}'
+            ></div>`
+          }} />
+        </div>
+
         <MainTitle />
 
         <EmbedVideo />
 
+
+
         <article className="header-profile">
-          <Header title="NEURAL BODY OF WORK" />
+          <SmallTextBanner title="IFICIAL BODY OF WORK" highlight={"ART"} />
         </article>
+
 
         <ArtistProfile />
 
         <hr />
-
+        
         <ArtworkInfo />
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {/* ~~ Add Marketplace Widget component ~~ */}
+          <div dangerouslySetInnerHTML={{ 
+            __html: 
+            `<div
+            data-widget='m-layout-complete-listing'
+            data-id='${process.env.NEXT_APP_MARKETPLACE_LISTING_ID}'
+            data-network='${process.env.NEXT_APP_NETWORK}'
+            ></div>`
+            }} />
+        </div>
+
+        
+
 
         
         <EverydaysGrid />

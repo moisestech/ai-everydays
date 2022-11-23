@@ -11,7 +11,6 @@ const HeaderStyles = styled('section')(
   @media (max-width: 30em) {
     h2.title {
       font-size: 1rem;
-      // background: yellow;
       margin: 0;
       padding: 0;
     }

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import promptImageArray from '../constants/imagePrompt'
+import promptImageArray from '../constants/mobile-imagePrompts'
 
 // NEXT
 import Image from 'next/image'
@@ -119,6 +119,17 @@ const EverydaysGridStyles = styled('section')(
     font-size: 1.5rem;
   }
 
+  .debug {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 150;
+    top: 0;
+    right: 200px;
+    background: white;
+    padding: 20px;
+  }
+
   @media only screen and (max-width: 40em) {
     .everyday:hover .prompt-image {
       transform: scale(3) !important;
@@ -146,44 +157,16 @@ const EverydaysGridStyles = styled('section')(
 `,
 )
 
-let initialImageArray = [
-  // // "20220909015018_00030_A_couple_of_veliciraptors_holding_cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00130_Bull_Run_Cyborg_Machine_Vehicle_in_a_Electronic_Super_Highway,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00131_Bull_Run_Cyborg_Machine_Vehicle_in_a_Electronic_Super_Highway,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00165_retro_computer_as_a_a_terrarium,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00212_River_of_Smartphones_and_Cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00222_A_couple_of_veliciraptors_holding_cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909164327_00002_a_person_flying_with_a_jetpack,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909164327_00024_A_person_with_a_mind_controlled_by_AI,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909164327_00090_A_Cyborg_with_a_Laptop,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00002_a_person_flying_with_a_jetpack,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00018_A_person_jacking_into_the_Matrix,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00061_A_cyborg_with_a_USB_port_for_a_mouth,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00081_A_Cyborg_with_a_Pet,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00088_A_Cyborg_with_a_Bomb,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909191102_00039_retro_computer_as_a_a_terrarium,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909015018_00030_A_couple_of_veliciraptors_holding_cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00130_Bull_Run_Cyborg_Machine_Vehicle_in_a_Electronic_Super_Highway,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00131_Bull_Run_Cyborg_Machine_Vehicle_in_a_Electronic_Super_Highway,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00165_retro_computer_as_a_a_terrarium,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00212_River_of_Smartphones_and_Cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909020700_00222_A_couple_of_veliciraptors_holding_cellphones,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909164327_00002_a_person_flying_with_a_jetpack,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909164327_00024_A_person_with_a_mind_controlled_by_AI,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909164327_00090_A_Cyborg_with_a_Laptop,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00002_a_person_flying_with_a_jetpack,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00018_A_person_jacking_into_the_Matrix,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00061_A_cyborg_with_a_USB_port_for_a_mouth,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00081_A_Cyborg_with_a_Pet,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909173552_00088_A_Cyborg_with_a_Bomb,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-  // "20220909191102_00039_retro_computer_as_a_a_terrarium,_centered_wide_shot,_far_away,_photograph,_highly_detailed.png",
-]
+let initialImageArray = []
 
 export default function EverydaysGrid() {
   // const [initialImageArray, setInitialImageArray] = useState([])
   const [imageArray, setImageArray] = useState(initialImageArray)
-  const [everydayCount, setEverydayCount] = useState(128)
+  const [everydayCount, setEverydayCount] = useState(0)
   const [hasMore, setHasMore] = useState(true)
+
+  const addAmount = 12;
+  const initialAmount = 12;
 
   // const currentPromptText = prompts[index];
 
@@ -200,28 +183,49 @@ export default function EverydaysGrid() {
 
   // const randomEveryday = randomNoRepeats(promptImageArray)
 
+  function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+
   useEffect(() => {
     let newArray = []
-    for (let i = 0; i < 128; i++) {
-      console.log('useEffect:', everydayCount + i)
+    // shuffle(promptImageArray)
+    for (let i = 0; i < initialAmount; i++) {
+      // console.log('useEffect:', everydayCount + i)
       newArray.push(promptImageArray[everydayCount + i])
     }
-    console.log('useEffect newArray', newArray.length);
-    console.log('imageArray', imageArray.length);
-    setImageArray(prevArray => [...prevArray, ...newArray]);
-  }, [])
-
-  const addToArray = useCallback(() => {
-    const addAmount = 32;
-    let newArray = []
-    for (let i = 0; i < addAmount; i++) {
-      console.log('everyday-count:', everydayCount + i)
-      newArray.push(promptImageArray[everydayCount + i])
-    }
-    console.log('addToArray', newArray.length);
+    // console.log('useEffect newArray', newArray.length);
+    // console.log('imageArray', imageArray.length);
     setEverydayCount(everydayCount + addAmount);
     setImageArray(prevArray => [...prevArray, ...newArray]);
   }, [])
+
+  const addToArray = () => {
+    let newArray = []
+    for (let i = 0; i < addAmount; i++) {
+      // console.log('everyday-count:', everydayCount + i)
+      newArray.push(promptImageArray[everydayCount + i])
+    }
+    console.log(newArray);
+    console.log({ everydayCount });
+    console.log('addToArray', newArray.length);
+    setEverydayCount(everydayCount + addAmount);
+    setImageArray(prevArray => [...prevArray, ...newArray]);
+  }
 
   console.log('promptImageArray', promptImageArray.length);
   console.log('imageArray', imageArray.length);
@@ -230,7 +234,7 @@ export default function EverydaysGrid() {
     // a fake async api call like which sends
     // 20 more records in 1.5 secs
     setTimeout(() => {
-      // setEverydayCount(everydayCount + 32);
+      // setEverydayCount(everydayCount + addAmount);
       addToArray();
 
       // const newArray = promptImageArray.slice(everydayCount, everydayCount + 32);
@@ -242,12 +246,21 @@ export default function EverydaysGrid() {
     }, 1500);
   };
   
-  // console.log({imageArray});
+  console.log({ imageArray });
   // console.log(`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[0]}`);
 
   return (
     <EverydaysGridStyles className="everydays-grid">
         {/* { everydayCount } */}
+
+        <div className="debug">
+          <span>
+            {'IMAGE-ARRAY: '}{imageArray.length}
+          </span>
+          <span>
+            {'EVERYDAY-COUNT: '}{everydayCount}
+          </span>
+        </div>
 
         {/* <ImageWithSize imgUrl={`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[0]}`} /> */}
         <InfiniteScroll
@@ -262,7 +275,7 @@ export default function EverydaysGrid() {
               <div className="everyday" key={index} style={{ position: 'relative', display: 'inline-block' }}>
                 <span className="prompt-text">{imageArray[index]}</span>
                 <Image className="prompt-image" layout={'responsive'} width={100} height={100}
-                  src={`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[index]}`}/>
+                  src={`https://ai-everydays.s3.amazonaws.com/everydays-mobile/${imageArray[index]}`}/>
                 
                 
                 {/* <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 

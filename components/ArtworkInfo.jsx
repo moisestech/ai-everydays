@@ -1,24 +1,27 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
+// NEXT
+import Link from 'next/link'
+
 // MUI
 import { styled } from '@mui/material'
 
 // height: ${theme.spacing(10)};
 // margin-bottom: ${theme.spacing(10)};
 const ArtworkInfoStyles = styled('section')(
-  ({ theme }) => `
+  () => `
   width: calc(100vw - 10%);
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
-  margin: 150px 0;
+  margin: 100px 0;
 
   h3 {
     margin: 0 0 12px 0;
   }
 
-  .artwork-column:first-child {
+  .artwork-column:first-of-type {
     display: flex;
     align-items: flex-start;
     // margin: 0 0 0 100px;
@@ -76,6 +79,49 @@ const ArtworkInfoStyles = styled('section')(
   }
   .italics {
     font-style: italic;
+  }
+
+  // COLLECTOR RECEIVES
+  li.artwork-detail {
+    font-size: 1rem;
+    margin: 1px 0;
+  }
+  .collector-receives {
+    margin-top: 20px;
+  }
+
+  // VIEW ARTWORK & COLLECT
+  .editions-wrapper {
+    margin-top: 20px;
+  }
+
+  .view-wrapper {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .view-artwork, .collect-artwork {
+    border: 1px solid black;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin: 50px 10px 0 0;
+    max-width: 150px;
+    min-width: 150px;
+    justify-content: center;
+  }
+  .view-artwork a, .collect-artwork a {
+    color: black;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .view-artwork a:hover, .collect-artwork a:hover {
+    background-color: blue;
+    color: white;
   }
 
   @media only screen and (max-width: 40em) {
@@ -164,6 +210,30 @@ export default function ArtworkInfo() {
               {"Minted on Nov 15th February 2022. This work is unique."}
             </li>
           </ul>
+
+          <div className="editions-wrapper">
+            <span>
+              <b style={{ fontWeight: 600, color: 'blue' }}>{'1 Edition'}</b>
+              {', 1 Artist Proof'}
+            </span>
+          </div>
+
+          <div className="collector-receives">
+            {"Collector receives: JPG and PNG image. Original Image in an interactive HTML environment, Art Sale Agreement, Artist + Collector Rights"}
+          </div>
+
+          <div className="view-wrapper">
+            <span className="view-artwork">
+              <Link href="">
+                {"View on OpenSea"}
+              </Link>
+            </span>
+            <span className="collect-artwork">
+              <Link href="">
+                {"Collect"}
+              </Link>
+            </span>
+          </div>
         </article>
 
         <article className="artwork-description-wrapper">
@@ -173,10 +243,10 @@ export default function ArtworkInfo() {
 
           <div className="artwork-description">
             <span className="italics">{'“AI Everydays: The First 5,000”'}</span>
-            <span>{" is an AI conceptual artwork that reflects on the contemporary speed of algorithmic production and the artist's role in automation. The piece features a combinatorial projection of emerging technologies rendered as an artificial cartographic landscape. By re-interpreting machine learning ensemble methods and industrialized assemblage processes, Sanabria investigates the trending impact of artificial intelligence on visual culture, operating simultaneously as an individual and a factory."}</span>
-            <span>{" In addition,"}</span>
-            <span className="italics">{'“AI Everydays: The First 5,000 Days”'}</span>
-            <span>{" plays with unsupervised clustering formulas to create an aesthetic gradient. One must zoom out of each neural image to see the abstract uncanny valley we live in daily."}</span>
+            <span>{" is an AI conceptual artwork that reflects on the contemporary speed of algorithmic production and the artist's role in automation. The piece features a combinatorial projection of emerging technologies rendered as an artificial cartographic landscape. Through the work I investigate the trending impact of artificial intelligence on visual culture by way of automation and abstraction. The piece is a symbolic representation of AI enabled labor that allows me to simultanously operate as an individual and a factory. Using unsupervised sorting algorithms the individual daily generations are curated to into an abstract birds-eye view aesthetic gradient."}</span>
+            {/* <span>{" In addition,"}</span>
+            <span className="italics">{'“AI Everydays: The First 5,000 Days”'}</span> */}
+            <span>{"To see the speed of intelligence, one must zoom out of each neural creation to perceive the abstract uncanny valley we are living and adopting daily."}</span>
           </div>
 
           <span className="artwork-description">

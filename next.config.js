@@ -15,6 +15,12 @@ module.exports = {
         port: '',
         pathname: '/profile/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'ai-everydays.s3.amazonaws.com',
+        port: '',
+        pathname: '/everydays-mobile/**',
+      },
     ],
   },
 }
