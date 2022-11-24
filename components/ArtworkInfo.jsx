@@ -16,6 +16,7 @@ const ArtworkInfoStyles = styled('section')(
   justify-content: flex-start;
   flex-direction: row;
   margin: 100px 0;
+  max-width: 1000px;
 
   h3 {
     margin: 0 0 12px 0;
@@ -140,7 +141,7 @@ const ArtworkInfoStyles = styled('section')(
       margin-top: 50px;
     }
     .artwork-description {
-      font-size: 1.125rem;
+      font-size: 1.5rem;
     }
     li.artwork-detail {
       font-size: 1.125rem;
@@ -243,14 +244,14 @@ export default function ArtworkInfo() {
 
           <div className="artwork-description">
             <span className="italics">{'“AI Everydays: The First 5,000”'}</span>
-            <span>{" is an AI conceptual artwork that reflects on the contemporary speed of algorithmic production and the artist's role in automation. The piece features a combinatorial projection of emerging technologies rendered as an artificial cartographic landscape. Through the work I investigate the trending impact of artificial intelligence on visual culture by way of automation and abstraction. The piece is a symbolic representation of AI enabled labor that allows me to simultanously operate as an individual and a factory. Using unsupervised sorting algorithms the individual daily generations are curated to into an abstract birds-eye view aesthetic gradient."}</span>
+            <span>{" is an AI conceptual artwork that reflects on the contemporary speed of algorithmic production and the artist's role in automation. The piece features a combinatorial projection of emerging technologies rendered as an artificial cartographic landscape. With this work, I investigate the trending impact of artificial intelligence on visual culture through automation and abstraction. The piece is a symbolic representation of AI-enabled labor that allows me to operate simultaneously as an individual and a factory. The discrete daily generations are curated into an abstract birds-eye view aesthetic gradient using unsupervised sorting algorithms."}</span>
             {/* <span>{" In addition,"}</span>
             <span className="italics">{'“AI Everydays: The First 5,000 Days”'}</span> */}
-            <span>{"To see the speed of intelligence, one must zoom out of each neural creation to perceive the abstract uncanny valley we are living and adopting daily."}</span>
+            <span>{" To see the velocity of intelligence, one must zoom out of each neural creation to perceive the abstract uncanny valley we live in and adopt daily."}</span>
           </div>
 
           <span className="artwork-description">
-            {"As a premise to mathematize, paint, and question the imagination space enabled by large language models, the artist-curated lexicon of word embedding that instantiates the production of the images ranges from the attention economy and internet fiction to the everyday. The work's title and display borrow the presentation format of the human-made “Everydays: The First 5,000” NFT by the artist Beeple. In this regard, artificial intelligence enables the conceptual gesture to appropriate and generate an output in the scale of a decade oeuvre. Furthermore, the artwork explores the blurring boundary of the artist's role in automation, human-orchestrated AI labor, and the speed of creative acceleration."}
+            {"As a premise to mathematize, paint, and question the imagination space enabled by large language models, a curated lexicon of word embeddings ranging from the attention economy and internet fiction to the everyday. The work's title and display borrow the presentation format of the human-made “Everydays: The First 5,000” NFT by the artist Beeple. In this regard, artificial intelligence enables the conceptual gesture to appropriate and generate an output in the scale of a decade oeuvre. Furthermore, the artwork explores the blurring boundary of the artist's role in automation, human-orchestrated AI labor, and the speed of creative acceleration."}
           </span>
         </article>
       </div>

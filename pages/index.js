@@ -34,7 +34,7 @@ const HomeStyles = styled.section`
       padding: 0;
     }
     .header-profile {
-      margin: 30px 0 80px 0;
+      margin: 0;
     }
   }
   
@@ -50,6 +50,12 @@ export default function Home() {
           <link rel="icon" href="./favicon.ico" />
           <meta name="AI Everydays" content="AI Everydays: The First 5000" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta property="og:url" content="http://everydays.ai/" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content={"AI Everydays: The First 5000"} />
+          <meta name="twitter:card" content="I generated and curated 5,000+ pictures with AI every single day." />
+          <meta property="og:description" content="I generated and curated 5,000+ pictures with AI every single day." />
+          <meta property="og:image" content={"AI Everydays: The First 5000"} />
         </Head>
 
         <main>
@@ -62,7 +68,7 @@ export default function Home() {
 
         <EverydaysTSNEGrid />
 
-        <div style={{ position: 'fixed', top: 0, right: 0, padding: 15 }}>
+        <div style={{ position: 'fixed', top: 0, right: 0, padding: 15, zIndex: 150 }}>
 
           {/* -- Add Connect Widget -- */}
           <div dangerouslySetInnerHTML={{ 
@@ -103,10 +109,6 @@ export default function Home() {
             ></div>`
             }} />
         </div>
-
-        
-
-
         
         <EverydaysGrid />
 

@@ -15,6 +15,8 @@ const EverydayWrapperStyles = styled('section')(
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
+  
   .everydays {
     width: 100%;
     overflow-x: hidden;

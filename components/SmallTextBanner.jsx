@@ -67,7 +67,7 @@ const SmallTextBannerStyles = styled('section')(
 
   @media (max-width: 30em) {
     h2.title {
-      font-size: 1rem;
+      font-size: 1.3rem;
       margin: 0;
       padding: 0;
     }

@@ -22,6 +22,7 @@ const ArtworkInfoStyles = styled('section')(
   flex-direction: row;
   margin: 50px 0;
   width: calc(100vw - 10%);
+  max-width: 1000px;
 
   article:first-of-type {
     display: flex;
@@ -104,13 +105,17 @@ const ArtworkInfoStyles = styled('section')(
     align-items: center;
 
     article {
-      margin: 25px 10px;
+      margin: 0;
     }
     article:first-of-type {
       display: flex;
       flex: 1;
       flex-direction: column;
       max-width: 400px;
+    }
+
+    .artist-profile-wrapper img {
+      width: 100%;
     }
   
     article:nth-of-type(2) {
@@ -143,7 +148,7 @@ export default function ArtistProfile() {
   return (
     <ArtworkInfoStyles className="artist-profile-wrapper">
       <article className="artist-profile-wrapper" >
-        <Image alt="Picture of the artist" width={330} height={330}
+        <img alt="Picture of the artist"
           src="https://ai-everydays.s3.amazonaws.com/profile/moisesdsanabria-portrait.jpg" />
       </article>
 
@@ -179,27 +184,27 @@ export default function ArtistProfile() {
 
           <ul className="social-links">
             <li>
-              <Link href="https://twitter.com/moisesdsanabria" passHref legacyBehavior>
+              <Link href="https://twitter.com/moisesdsanabria" passHref>
                 <AiOutlineTwitter />
               </Link>  
             </li>
             
             <li>
-              <Link href="https://www.instagram.com/moisesdsanabria" passHref legacyBehavior>
+              <Link href="https://www.instagram.com/moisesdsanabria" passHref>
                 <AiFillInstagram />
               </Link>
             </li>
             
             <li>
-              <Link href="mailto:m@moises.tech" passHref legacyBehavior>
+              <Link href="mailto:m@moises.tech" passHref>
                 <AiTwotoneMail />
               </Link>
             </li>
             
             <li>
-              <Link href="https://www.tiktok.com/@moisesdsanabria" passHref legacyBehavior>
+              <Link href="https://www.tiktok.com/@moisesdsanabria" passHref>
                 <FaTiktok />
-                </Link>
+              </Link>
             </li>
 
           </ul>

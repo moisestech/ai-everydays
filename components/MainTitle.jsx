@@ -45,6 +45,8 @@ const TitleStyles = styled('section')(
     text-align: center;
   }
   @media (max-width: 30em) {
+    margin: 30px 0;
+
     .artwork-title-wrapper {
       display: flex;
       flex-direction: column;
@@ -56,6 +58,10 @@ const TitleStyles = styled('section')(
     }
     .artwork-title-wrapper h3 {
       font-size: 2.5rem;
+    }
+    .artwork-title-wrapper h4 {
+      font-size: 2.5rem;
+      max-width: 90px;
     }
     .artwork-title {
       font-size: 1rem;

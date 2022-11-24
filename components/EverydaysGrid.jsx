@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import promptImageArray from '../constants/mobile-imagePrompts'
 
 // NEXT
@@ -7,6 +7,9 @@ import Image from 'next/image'
 // COMPONENTS
 import InfiniteScroll from "react-infinite-scroll-component";
 import ImageWithSize from '@components/ImageWithSize';
+
+// HOOKS
+import useWindowDimensions from '@hooks/useWindowDimensions';
 
 // MUI
 import { styled } from '@mui/material'
@@ -56,7 +59,7 @@ const EverydaysGridStyles = styled('section')(
   }
   // HOVER
 	.everyday:hover .prompt-image {
-    transform: scale(4);
+    transform: scale(2.5);
     /* width: 400px;
     height: 400px; */
     z-index:  100;
@@ -128,14 +131,24 @@ const EverydaysGridStyles = styled('section')(
     right: 200px;
     background: white;
     padding: 20px;
+    display: none;
+  }
+  @media (max-width: 40em) {
+    .everyday .prompt-image {
+      min-height: 10px !important;
+    }
   }
 
   @media only screen and (max-width: 40em) {
+    .everyday .prompt-image {
+      min-height: 20px;
+    }
     .everyday:hover .prompt-image {
-      transform: scale(3) !important;
+      transform: scale(2) !important;
       z-index:  100;
       pointer-events:  none;
     }
+
     .everyday:hover .prompt-text {
       display: flex;
       flex: 1;
@@ -161,12 +174,16 @@ let initialImageArray = []
 
 export default function EverydaysGrid() {
   // const [initialImageArray, setInitialImageArray] = useState([])
+  const [breakpointCols, setBreakpointCols] = useState(12);
   const [imageArray, setImageArray] = useState(initialImageArray)
   const [everydayCount, setEverydayCount] = useState(0)
   const [hasMore, setHasMore] = useState(true)
 
-  const addAmount = 12;
-  const initialAmount = 12;
+  const { width } = useWindowDimensions()
+
+  const addAmount = 48;
+  const initialAmount = 48;
+  const mobileImageArrayURL = "https://ai-everydays.s3.amazonaws.com/everydays-mobile/"
 
   // const currentPromptText = prompts[index];
 
@@ -180,30 +197,54 @@ export default function EverydaysGrid() {
   //     return item;
   //   };
   // }
-
   // const randomEveryday = randomNoRepeats(promptImageArray)
 
-  function shuffle(array) {
-    let currentIndex = array.length,  randomIndex;
-  
-    // While there remain elements to shuffle.
-    while (currentIndex != 0) {
-  
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+  const deviceWidthMobile = 640
+  const deviceWidthTablet = 840
+  const deviceWidthDesktop = 1150
+  const deviceWidthDesktopXL = 1300
+  const deviceWidthDesktopXXL = 1400
+
+  console.log({ width })
+
+  const getBreakpointCols =
+  useMemo(() => {
+    console.log('USE-MEMO BREAKPOINTS!!!!')
+    console.log(width)
+    console.log(width <= 960)
+
+    if (width <= deviceWidthMobile) {
+      // console.log('USE-MEMO BREAKPOINTS MOBILE!!!!')
+      setBreakpointCols(3)
+      return 1
+    } else if (width >= deviceWidthMobile && width <= deviceWidthTablet) {
+      // console.log('USE-MEMO BREAKPOINTS TABLET!!!!')
+      setBreakpointCols(3)
+      return 2
+    } else if (width >= deviceWidthTablet && width <= deviceWidthDesktop) {
+      // console.log('USE-MEMO BREAKPOINTS TABLET!!!!')
+      setBreakpointCols(3)
+      return 2
+    } else if (width >= deviceWidthDesktop && width < deviceWidthDesktopXL) {
+      // console.log('USE-MEMO BREAKPOINTS DESKTOP!!!!')
+      setBreakpointCols(4)
+      return 4
+    } else if (width >= deviceWidthDesktopXL && width < deviceWidthDesktopXXL) {
+      setBreakpointCols(4)
+      return 6
+    } else if (width >= deviceWidthDesktopXXL) {
+      setBreakpointCols(4)
+      return 7
+    } else {
+      console.log('USE MEMO DEFAULT!!!')
     }
-  
-    return array;
-  }
+  }, [width])
+
+  console.log(breakpointCols)
+  console.log(getBreakpointCols)
 
   useEffect(() => {
     let newArray = []
-    // shuffle(promptImageArray)
     for (let i = 0; i < initialAmount; i++) {
       // console.log('useEffect:', everydayCount + i)
       newArray.push(promptImageArray[everydayCount + i])
@@ -270,16 +311,16 @@ export default function EverydaysGrid() {
             loader={<h4 className="scroll-loader">Loading...</h4>}
             scrollableTarget="everydays-grid"
           >
-          <Masonry columns={12} spacing={0}>  
+          <Masonry columns={breakpointCols} spacing={0}>  
             {imageArray.map((i, index) => (
               <div className="everyday" key={index} style={{ position: 'relative', display: 'inline-block' }}>
                 <span className="prompt-text">{imageArray[index]}</span>
-                <Image className="prompt-image" layout={'responsive'} width={100} height={100}
-                  src={`https://ai-everydays.s3.amazonaws.com/everydays-mobile/${imageArray[index]}`}/>
+                {/* <Image className="prompt-image" layout={'responsive'} width={100} height={100}
+                  src={`${mobileImageArrayURL}${imageArray[index]}`}/> */}
                 
                 
-                {/* <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 
-                  src={`/assets/everydays-all/${promptImageArray[index]}`}/>  */}
+                <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 
+                  src={`${mobileImageArrayURL}${imageArray[index]}`}/> 
                 {/* <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 
                   src={`/assets/everydays-all/${randomEveryday()}`}/>   */}
               </div>
