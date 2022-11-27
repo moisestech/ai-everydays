@@ -75,6 +75,12 @@ const ArtworkInfoStyles = styled('section')(
     font-size: .8rem;
     margin: 0;
   }
+  .artwork-detail a {
+    color: black;
+  }
+  .artwork-detail a:hover {
+    color: blue;
+  }
   .artwork-description {
     margin: 0 0 20px 0;
   }
@@ -192,7 +198,10 @@ export default function ArtworkInfo() {
             </li>
               
             <li className="artwork-detail">
-              {"Smart Contract address: 0x3f62123ab7415ecf1343ae4cc9cb246d1f0e90d7"}
+              {"Smart Contract address:"}
+              <a target="_blank" href="https://etherscan.io/address/0x3f62123ab7415ecf1343ae4cc9cb246d1f0e90d7">
+                {"0x3f62123ab7415ecf1343ae4cc9cb246d1f0e90d7"}
+              </a>
             </li>
 
             <li className="artwork-detail">
@@ -205,6 +214,10 @@ export default function ArtworkInfo() {
               
             <li className="artwork-detail">
               {"12,500 by 12,500 pixels (308,493,992 bytes)"}
+            </li>
+
+            <li className="artwork-detail">
+              <a target="_blank" href="https://gateway.pinata.cloud/ipfs/QmXtHmLYFizR1Y7MSgJ7PNUHTnA1UuxfVFZ4wE7tZxnxNQ">IPFS Raw Media File pinned with Pinata</a>
             </li>
 
             <li className="artwork-detail">
