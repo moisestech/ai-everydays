@@ -334,10 +334,9 @@ export default function EverydaysGrid() {
           <Masonry columns={breakpointCols} spacing={0}>  
             {imageArray.map((i, index) => (
               <div className="everyday" key={index} style={{ position: 'relative', display: 'inline-block' }}>
-                <span className="prompt-text">{parsedPrompt(imageArray[index])}</span>
+                {/* <span className="prompt-text">{parsedPrompt(imageArray[index])}</span> */}
                 {/* <Image className="prompt-image" layout={'responsive'} width={100} height={100}
                   src={`${mobileImageArrayURL}${imageArray[index]}`}/> */}
-                
                 
                 <img className="prompt-image" style={{ objectFit: 'contain', height: '100%', display: 'block', position: 'relative', maxWidth: 'unset', width: '100%', height: 'auto' }} 
                   src={`${mobileImageArrayURL}${imageArray[index]}`}/> 

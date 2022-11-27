@@ -60,18 +60,18 @@ export default function Home() {
 
         <main>
           <Header 
-            title="I generated and curated 5,000+ pictures with AI every single day from" 
-            date=" March 21st — Nov 10th, 2022."
+            title="I generated and curated 5,000 pictures with AI every single day from" 
+            date=" June 21st — Nov 27th, 2022."
           />
         </main>
 
 
         <EverydaysTSNEGrid />
 
-        <div style={{ position: 'fixed', top: 0, right: 0, padding: 15, zIndex: 150 }}>
+        {/* <div style={{ position: 'fixed', top: 0, right: 0, padding: 15, zIndex: 150 }}> */}
 
           {/* -- Add Connect Widget -- */}
-          <div dangerouslySetInnerHTML={{ 
+          {/* <div dangerouslySetInnerHTML={{ 
             __html: 
             `<div
             data-widget='m-connect'
@@ -79,7 +79,7 @@ export default function Home() {
             data-network='${process.env.NEXT_APP_NETWORK}'
             ></div>`
           }} />
-        </div>
+        </div> */}
 
         <MainTitle />
 
@@ -98,9 +98,9 @@ export default function Home() {
         
         <ArtworkInfo />
 
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {/* <div style={{ display: 'flex', flexDirection: 'column' }}> */}
           {/* ~~ Add Marketplace Widget component ~~ */}
-          <div dangerouslySetInnerHTML={{ 
+          {/* <div dangerouslySetInnerHTML={{ 
             __html: 
             `<div
             data-widget='m-layout-complete-listing'
@@ -108,7 +108,7 @@ export default function Home() {
             data-network='${process.env.NEXT_APP_NETWORK}'
             ></div>`
             }} />
-        </div>
+        </div> */}
         
         <EverydaysGrid />
 

@@ -184,15 +184,15 @@ export default function ArtworkInfo() {
             </li>
 
             <li className="artwork-detail">
-              {"token ID: #####"}
+              {"token ID: 1"}
             </li>
             
             <li className="artwork-detail">
-              {"Wallet address: 0x000000"}
+              {"Wallet address: 0x49fbd13846F2428c148A4c165a22b4fFA54263a4"}
             </li>
               
             <li className="artwork-detail">
-              {"Smart Contract address: 0x00000"}
+              {"Smart Contract address: 0x3f62123ab7415ecf1343ae4cc9cb246d1f0e90d7"}
             </li>
 
             <li className="artwork-detail">
@@ -204,11 +204,11 @@ export default function ArtworkInfo() {
             </li>
               
             <li className="artwork-detail">
-              {"25,404 by 25,404 pixels (546,800,000 bytes)"}
+              {"12,500 by 12,500 pixels (308,493,992 bytes)"}
             </li>
 
             <li className="artwork-detail">
-              {"Minted on Nov 15th February 2022. This work is unique."}
+              {"Minted on Nov 27th February 2022. This work is unique."}
             </li>
           </ul>
 
@@ -225,13 +225,17 @@ export default function ArtworkInfo() {
 
           <div className="view-wrapper">
             <span className="view-artwork">
-              <Link href="">
+            <Link href="https://opensea.io/assets/ethereum/0x3f62123ab7415ecf1343ae4cc9cb246d1f0e90d7/1" passHref>
+              <a target="_blank" href="https://opensea.io/assets/ethereum/0x3f62123ab7415ecf1343ae4cc9cb246d1f0e90d7/1">
                 {"View on OpenSea"}
-              </Link>
+              </a>
+            </Link>
             </span>
             <span className="collect-artwork">
-              <Link href="">
-                {"Collect"}
+              <Link href="https://gallery.manifold.xyz/0x3f62123ab7415ecf1343ae4cc9cb246d1f0e90d7/1" passHref>
+                <a target="_blank" rel="noopener" noreferrer href="https://gallery.manifold.xyz/0x3f62123ab7415ecf1343ae4cc9cb246d1f0e90d7/1">
+                  {"Collect"}
+                </a>
               </Link>
             </span>
           </div>
@@ -239,7 +243,7 @@ export default function ArtworkInfo() {
 
         <article className="artwork-description-wrapper">
           <h3>
-            ARTIST STATEMENT
+            ARTIST STATEMEN
           </h3>
 
           <div className="artwork-description">
@@ -251,7 +255,10 @@ export default function ArtworkInfo() {
 
           <span className="artwork-description">
             <span>{" As a premise to mathematize, paint, and question the imagination space enabled by large language models, a curated lexicon of word embeddings ranging from the attention economy and internet fiction to the everyday comprise the generations. The 5,000 images that compose the artwork as a single NFT comment on the speed of creative acceleration and the accessible imagination space attainable using diffusion models."}</span>
-            <span>{"  The work's title and display borrow the presentation format of the human-made “Everydays: The First 5,000” NFT by the artist Beeple. In this regard, artificial intelligence enables the conceptual gesture to appropriate and generate an output in the scale of a decade oeuvre.  AI tools advance us towards mass prosumption, changing our relationship to language and images daily, blurring the collaboration boundary between humans and AI models. To see the speed of change in intelligence, one must zoom out of each neural creation to perceive the uncanny valley we live in and adopt daily."}</span>
+            <span>{"  The work's title and display borrow the presentation format of the human-made"}</span> 
+            
+            <span className="italics">{"“Everydays: The First 5,000”"}</span>
+            <span>{" NFT by the artist Beeple. In this regard, artificial intelligence enables the conceptual gesture to appropriate and generate an output in the scale of a decade oeuvre.  AI tools advance us towards mass prosumption, changing our relationship to language and images daily, blurring the collaboration boundary between humans and AI models. To see the speed of change in intelligence, one must zoom out of each neural creation to perceive the uncanny valley we live in and adopt daily."}</span>
             {/* {"As a premise to mathematize, paint, and question the imagination space enabled by large language models, a curated lexicon of word embeddings ranging from the attention economy and internet fiction to the everyday. The work's title and display borrow the presentation format of the human-made “Everydays: The First 5,000” NFT by the artist Beeple. In this regard, artificial intelligence enables the conceptual gesture to appropriate and generate an output in the scale of a decade oeuvre. Furthermore, the artwork explores the blurring boundary of the artist's role in automation, human-orchestrated AI labor, and the speed of creative acceleration."} */}
           </span>
         </article>
