@@ -50,17 +50,17 @@ export default function Home() {
           <link rel="icon" href="./favicon.ico" />
           <meta name="AI Everydays" content="AI Everydays: The First 5000" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <meta property="og:url" content="http://everydays.ai/" />
+          <meta property="og:url" content="https://everydays.ai/" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content={"AI Everydays: The First 5000"} />
-          <meta name="twitter:card" content="I generated and curated 5,000+ pictures with AI every single day." />
-          <meta property="og:description" content="I generated and curated 5,000+ pictures with AI every single day." />
-          <meta property="og:image" content={"AI Everydays: The First 5000"} />
+          <meta name="twitter:card" content="I generated and curated 5000 pictures with AI every single day." />
+          <meta property="og:description" content="I generated and curated 5000 pictures with AI every single day." />
+          <meta property="og:image" content={"https://gateway.pinata.cloud/ipfs/QmYut1yUGMBe9n6kXDSMCvmafv257RuPHPNFxjdJ9o1gqK"} />
         </Head>
 
         <main>
           <Header 
-            title="I generated and curated 5,000 pictures with AI every single day from" 
+            title="I generated and curated 5000 pictures with AI every single day from" 
             date=" June 21st — Nov 27th, 2022."
           />
         </main>
