@@ -256,7 +256,7 @@ export default function ArtworkInfo() {
 
         <article className="artwork-description-wrapper">
           <h3>
-            ARTIST STATEMEN
+            ARTIST STATEMENT
           </h3>
 
           <div className="artwork-description">
