@@ -84,7 +84,7 @@ const EverydaysGridStyles = styled('section')(
     font-size: 1.5rem;
     width: 10vw;
     padding: 5px;
-    display: none;
+    // display: none;
   }
 	.everyday .prompt-image {
 		width: 100%;
@@ -99,19 +99,19 @@ const EverydaysGridStyles = styled('section')(
   .everyday:hover .prompt-text {
     display: flex;
     flex: 1;
-    font-size: 0.2rem;
+    font-size: 0.3rem;
 		display: block;
     position: absolute;
     padding: 5px;
-    bottom: -150px;
+    bottom: -130px;
     margin: 0;
-    transform: scale(4);
+    transform: scale(3);
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(16px);
     color: white;
     z-index: 150;
     word-break: break-all;
-    display: none;
+    // display: none;
 	}
   // SCROLL
   .scroll-loader {
@@ -227,13 +227,13 @@ export default function EverydaysGrid() {
       return 2
     } else if (width >= deviceWidthDesktop && width < deviceWidthDesktopXL) {
       // console.log('USE-MEMO BREAKPOINTS DESKTOP!!!!')
-      setBreakpointCols(4)
+      setBreakpointCols(12)
       return 4
     } else if (width >= deviceWidthDesktopXL && width < deviceWidthDesktopXXL) {
-      setBreakpointCols(4)
+      setBreakpointCols(12)
       return 6
     } else if (width >= deviceWidthDesktopXXL) {
-      setBreakpointCols(4)
+      setBreakpointCols(12)
       return 7
     } else {
       console.log('USE MEMO DEFAULT!!!')
@@ -286,6 +286,26 @@ export default function EverydaysGrid() {
       // console.log(promptImageArray.slice(everydayCount, everydayCount + 32));
     }, 1500);
   };
+
+  const parsedPrompt = (prompt) => {
+    console.log(prompt);
+
+    let parsedPrompt = ''
+
+    const chars = {'_':' ','-':'', '.': ''};
+
+    parsedPrompt = prompt.replace(/#|_/g, m => chars[m]);
+    parsedPrompt = parsedPrompt.replace('.jpg', '');
+    parsedPrompt = parsedPrompt.replace('DALL·E', '')
+    parsedPrompt = parsedPrompt.replace('wide shot, far away, photorealistic, highly detailed, photograph, in frame, in focus, k, high-defi', '')
+    parsedPrompt = parsedPrompt.replace(' -- .. - ', '');
+
+    parsedPrompt = parsedPrompt.replace(/[0-9]/g, '');
+
+    console.log(parsedPrompt);
+
+    return parsedPrompt; 
+  }
   
   console.log({ imageArray });
   // console.log(`https://ai-everydays.s3.amazonaws.com/everydays-raw/${imageArray[0]}`);
@@ -314,7 +334,7 @@ export default function EverydaysGrid() {
           <Masonry columns={breakpointCols} spacing={0}>  
             {imageArray.map((i, index) => (
               <div className="everyday" key={index} style={{ position: 'relative', display: 'inline-block' }}>
-                <span className="prompt-text">{imageArray[index]}</span>
+                <span className="prompt-text">{parsedPrompt(imageArray[index])}</span>
                 {/* <Image className="prompt-image" layout={'responsive'} width={100} height={100}
                   src={`${mobileImageArrayURL}${imageArray[index]}`}/> */}
                 

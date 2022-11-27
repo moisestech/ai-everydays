@@ -243,18 +243,21 @@ export default function ArtworkInfo() {
           </h3>
 
           <div className="artwork-description">
-            <span className="italics">{'“AI Everydays: The First 5,000”'}</span>
-            <span>{" is an AI conceptual artwork that reflects on the contemporary speed of algorithmic production and the artist's role in automation. The piece features a combinatorial projection of emerging technologies rendered as an artificial cartographic landscape. With this work, I investigate the trending impact of artificial intelligence on visual culture through automation and abstraction. The piece is a symbolic representation of AI-enabled labor that allows me to operate simultaneously as an individual and a factory. The discrete daily generations are curated into an abstract birds-eye view aesthetic gradient using unsupervised sorting algorithms."}</span>
+            <span className="italics">{'“AI Everydays: The First 5000”'}</span>
+            <span>{" is an AI conceptual artwork that reflects on the speed of contemporary algorithmic production and the artist's role in automation. The piece features a combinatorial projection of emerging technologies rendered as a cartographic dataset mapping speculative futures. With this work, I investigate the trending impact of artificial intelligence on visual culture through automation and abstraction. The piece is a symbolic representation of AI-enabled labor that allows me to operate simultaneously as an individual and a factory. The discrete daily generations are curated and sorted into a birds-eye view aesthetic gradient using unsupervised clustering algorithms."}</span>
             {/* <span>{" In addition,"}</span>
             <span className="italics">{'“AI Everydays: The First 5,000 Days”'}</span> */}
-            <span>{" To see the velocity of intelligence, one must zoom out of each neural creation to perceive the abstract uncanny valley we live in and adopt daily."}</span>
           </div>
 
           <span className="artwork-description">
-            {"As a premise to mathematize, paint, and question the imagination space enabled by large language models, a curated lexicon of word embeddings ranging from the attention economy and internet fiction to the everyday. The work's title and display borrow the presentation format of the human-made “Everydays: The First 5,000” NFT by the artist Beeple. In this regard, artificial intelligence enables the conceptual gesture to appropriate and generate an output in the scale of a decade oeuvre. Furthermore, the artwork explores the blurring boundary of the artist's role in automation, human-orchestrated AI labor, and the speed of creative acceleration."}
+            <span>{" As a premise to mathematize, paint, and question the imagination space enabled by large language models, a curated lexicon of word embeddings ranging from the attention economy and internet fiction to the everyday comprise the generations. The 5,000 images that compose the artwork as a single NFT comment on the speed of creative acceleration and the accessible imagination space attainable using diffusion models."}</span>
+            <span>{"  The work's title and display borrow the presentation format of the human-made “Everydays: The First 5,000” NFT by the artist Beeple. In this regard, artificial intelligence enables the conceptual gesture to appropriate and generate an output in the scale of a decade oeuvre.  AI tools advance us towards mass prosumption, changing our relationship to language and images daily, blurring the collaboration boundary between humans and AI models. To see the speed of change in intelligence, one must zoom out of each neural creation to perceive the uncanny valley we live in and adopt daily."}</span>
+            {/* {"As a premise to mathematize, paint, and question the imagination space enabled by large language models, a curated lexicon of word embeddings ranging from the attention economy and internet fiction to the everyday. The work's title and display borrow the presentation format of the human-made “Everydays: The First 5,000” NFT by the artist Beeple. In this regard, artificial intelligence enables the conceptual gesture to appropriate and generate an output in the scale of a decade oeuvre. Furthermore, the artwork explores the blurring boundary of the artist's role in automation, human-orchestrated AI labor, and the speed of creative acceleration."} */}
           </span>
         </article>
       </div>
     </ArtworkInfoStyles>
+
+    
   )
 }

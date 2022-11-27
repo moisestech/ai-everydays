@@ -82,7 +82,7 @@ export default function Header({ title }) {
   //     // Add logic with `term`
   //   }
 
-  //   if (numEverydays <= 5041) {
+  //   if (numEverydays <= 5000) {
   //     setNumEverdays(numEverydas + 1)
   //   }
   // }, [])
@@ -105,7 +105,7 @@ export default function Header({ title }) {
 
         <span className="artwork-subtitle-wrapper">
           <h3>THE FIRST</h3>
-          <h4><Number n={5041} /></h4>
+          <h4><Number n={5000} /></h4>
         </span>
       </div>
     </TitleStyles>
