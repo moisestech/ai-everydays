@@ -53,8 +53,8 @@ export default function Home() {
           <meta property="og:url" content="https://everydays.ai/" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content={"AI Everydays: The First 5000"} />
-          <meta name="twitter:card" content="I generated and curated 5000 pictures with AI every single day." />
-          <meta property="og:description" content="I generated and curated 5000 pictures with AI every single day." />
+          <meta name="twitter:card" content="I made and curated 5000 pictures with AI from start to finish everyday from June 21st - Nov 27th, 2022. This is every motherfucking one of those pictures." />
+          <meta property="og:description" content="I made and curated 5000 pictures with AI from start to finish everyday from June 21st - Nov 27th, 2022. This is every motherfucking one of those pictures." />
           <meta property="og:image" content={"https://gateway.pinata.cloud/ipfs/QmYut1yUGMBe9n6kXDSMCvmafv257RuPHPNFxjdJ9o1gqK"} />
         </Head>
 
