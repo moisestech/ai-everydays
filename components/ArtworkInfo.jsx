@@ -155,6 +155,7 @@ const ArtworkInfoStyles = styled('section')(
     }
     .artwork-column:nth-of-type(2) {
       margin: 10px;
+      width: 100%;
     }
   }
 `,
